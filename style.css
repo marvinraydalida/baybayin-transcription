@@ -1,0 +1,225 @@
+body {
+    background-color: rgb(248, 248, 248);
+    padding-top: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: rgb(110, 110, 110);
+    line-height: 10px;
+}
+
+h2 {
+    font-family: 'Noto Sans Tagalog', sans-serif;
+    font-weight: lighter;
+    font-size: 1.2rem;
+    line-height: 1px;
+}
+
+header {
+    width: 80vw;
+    margin: 0px auto 80px auto;
+}
+
+
+section {
+    display: flex;
+    justify-content: space-between;
+    height: 70vh;
+    width: 80vw;
+    margin: 0px auto;
+}
+
+
+#output-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70%;
+    height: 100%;
+}
+
+#output {
+    height: 85%;
+    width: 100%;
+    padding: 1rem;
+    margin: 0px auto 20px auto;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 5px 15px rgb(236, 236, 236);
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    color: rgb(95, 95, 95);
+    overflow-y: scroll;
+    font-size: 2rem;
+    word-wrap: break-word;
+}
+
+#output.baybayin {
+    font-family: 'Noto Sans Tagalog', sans-serif !important;
+}
+
+#output-container button {
+    display: block;
+    margin: 0px auto;
+    width: 100%;
+    height: 10%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 110%;
+    color: rgb(252, 252, 252);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(20, 223, 155);
+    box-shadow: 0px 5px 15px rgb(212, 212, 212);
+    transition: all 200ms ease-in-out;
+}
+
+#output-container button:hover {
+    background-color: rgb(27, 216, 153);
+}
+
+#output-container button:active {
+    background-color: rgb(45, 168, 127);
+}
+
+#output-container button.listening {
+    background-color: rgb(10, 167, 240);
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(206, 206, 206);
+    border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(146, 146, 146);
+}
+
+#status-container {
+    width: 27%;
+    height: 100%;
+    overflow-y: scroll;
+
+}
+
+.issue, .state {
+    width: 95%;
+    height: 15%;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 3px 10px rgb(236, 236, 236);
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    padding: 30px 25px 0px 25px;
+    position: relative;
+    margin-bottom: .6rem;
+}
+
+.issue h3, .state h3{
+    margin: 0px 0px 30px 0px;
+    color: rgb(95, 95, 95);
+    font-weight: lighter;
+}
+
+.issue i{
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    border: none;
+    background-color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+
+.issue button{
+    display: none;
+    border: none;
+    width: 100%;
+    height: 25%;
+    margin-top: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 110%;
+    color: rgb(252, 252, 252);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(20, 223, 155);
+    box-shadow: 0px 5px 15px rgb(212, 212, 212);
+    transition: all 200ms ease-in-out;
+}
+
+.issue button:hover {
+    background-color: rgb(27, 216, 153);
+}
+
+.issue button:active {
+    background-color: rgb(45, 168, 127);
+}
+
+.state{
+    cursor: pointer;
+    display: none;
+}
+
+.state i{
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    border: none;
+    background-color: white;
+    font-size: 1.7rem;
+    font-family: 'Noto Sans Tagalog', sans-serif;
+}
+
+.state:hover, .state:hover > i{
+    background-color: var(--bg-color);
+    color: white;
+    transition: all 250ms ease-in-out;
+}
+
+.state:hover > h3{
+    color: white;
+    transition: all 250ms ease-in-out;
+}
+
+/*
+
+background-color: #8c00ff;
+#f5b62f
+#f8069b
+#1bd899
+
+*/
+
+.rotate{
+    transform: rotate(180deg);
+}
+
+.expand{
+    animation: expand 250ms;
+    height: 40%;
+}
+
+.shrink{
+    animation: shrink 250ms;
+}
+
+@keyframes expand{
+    from{height: 15%;}
+    to{height: 40%;}
+}
+
+@keyframes shrink {
+    from{height: 40%;}
+    to{height: 15%;}
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tagalog&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="index.js" type="module" defer></script>
+    <script src="issue.js" type="module" defer></script>
+    <title>Speech to baybayin</title>
+</head>
+
+<body>
+    <template>
+        <div class="issue">
+            <h3></h3>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+    </template>
+
+    <header>
+        <h2>&#x1710&#x170E&#x1712&#x1708&#x1714</h2>
+        <h1>S A L I N</h1>
+    </header>
+
+
+    <section>
+        <div id="output-container">
+            <div id="output" class="baybayin"></div>
+            <button>Start</button>
+        </div>
+
+        <div id="status-container">
+            <div class = "state original" style = "--bg-color: #8c00ff">
+                <h3>Original transcription</h3>
+                <i class="bi bi-fonts"></i>
+            </div>
+            <div class = "state filtered" style = "--bg-color: #f8069b">
+                <h3>Filtered transcription</h3>
+                <i class="bi bi-filter-right"></i>
+            </div>
+            <div class = "state safe" style = "--bg-color: #F2D119">
+                <h3>Baybayin safe</h3>
+                <i class="bi bi-type"></i>
+            </div>
+            <div class = "state baybayin" style = "--bg-color: #1bd899">
+                <h3>Baybayin transcription</h3>
+                <i>&#x1703</i>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
