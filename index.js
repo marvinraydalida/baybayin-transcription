@@ -52,4 +52,3 @@ recognition.onresult = (event) => {
         outputBox.textContent = event.results[0][0].transcript;
     }
 }
-outputBox.textContent = transcribeToBaybayin('rajah jose jossie juan yopaj');
