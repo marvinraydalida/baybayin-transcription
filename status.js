@@ -16,7 +16,6 @@ export function createIssue(issues) {
 
 
     for (const issueText of issues) {
-        //console.dir(template)
         const issue = issueTemplate.content.firstElementChild.cloneNode(true);
         issue.firstElementChild.textContent = issueText;
 
@@ -74,7 +73,6 @@ export function displayStates(){
 
 function displayState(event){
     event.stopPropagation();
-    console.dir(event.target)
     if(event.target.tagName === 'DIV'){
         if(event.target.classList.contains('baybayin')){
             outputBox.textContent = transcribeToBaybayin(event.target.lastElementChild.value);
@@ -150,7 +148,6 @@ function expandIssue(event) {
     }
     else {
         button.parentNode.classList.toggle('expand');
-        console.log(button.parentNode.lastElementChild);
         for(const option of options){
             option.style.display = 'block';
         }

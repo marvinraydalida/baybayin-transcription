@@ -65,7 +65,6 @@ export function baybayinSafe(transcript) {
 
     //Replace C not followed by a vowel to K
     transcript = transcript.replace(/c(?![aeiou])/gi, 'k');
-    //console.log(transcript.match(/[a-z]*j\w*/gi));
 
     return transcript;
 }
