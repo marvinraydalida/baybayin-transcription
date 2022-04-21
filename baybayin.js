@@ -79,7 +79,7 @@ export function isBaybayinSafe(transcript){
 }
 
 export function transcribeToBaybayin(transcript) {
-    const consonants = ['ng', 'k', 'q', 'g', 't', 'd', 'r', 'n', 'p', 'b', 'v', 'm', 'y', 'l', 'w', 's', 'z', 'h', 'ñ'];
+    const consonants = ['ng', 'k', 'q', 'g', 't', 'd', 'r', 'n', 'p', 'f', 'b', 'v', 'm', 'y', 'l', 'w', 's', 'z', 'h', 'ñ'];
     const vowels = ['a', 'e', 'i', 'o', 'u'];
 
 

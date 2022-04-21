@@ -1,11 +1,14 @@
 import { filter, transcribeToBaybayin, baybayinSafe, isBaybayinSafe } from './baybayin.js';
-import { createIssue } from "./issue.js";
+import { createIssue, displayStates } from "./status.js";
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 
 const startBtn = document.querySelector('button');
 const outputBox = document.getElementById('output');
+let originalTranscript;
+let filteredTranscript;
+let baybayinSafeTranscript;
 
 recognition.continuous = true;
 recognition.interimResults = true;
@@ -37,12 +40,13 @@ recognition.onresult = (event) => {
         startBtn.textContent = 'Start';
         startBtn.classList.toggle('listening');
         outputBox.classList.toggle('baybayin');
-        const originalTranscript = event.results[0][0].transcript;
-        const filteredTranscript = filter(originalTranscript);
-        const baybayinSafeTranscript = baybayinSafe(filteredTranscript);
+        originalTranscript = event.results[0][0].transcript;
+        filteredTranscript = filter(originalTranscript);
+        baybayinSafeTranscript = baybayinSafe(filteredTranscript);
         outputBox.textContent = baybayinSafeTranscript;
         if (isBaybayinSafe(baybayinSafeTranscript)) {
             outputBox.textContent = transcribeToBaybayin(baybayinSafeTranscript);
+            displayStates();
         } else {
             createIssue(baybayinSafeTranscript.match(/[a-z]*j[a-z]*/gi));
             createIssue(baybayinSafeTranscript.match(/[a-z]*c[aeiou][a-z]*/gi));
@@ -52,3 +56,5 @@ recognition.onresult = (event) => {
         outputBox.textContent = event.results[0][0].transcript;
     }
 }
+
+export { originalTranscript, filteredTranscript, baybayinSafeTranscript };

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css">
 
     <script src="index.js" type="module" defer></script>
-    <script src="issue.js" type="module" defer></script>
+    <script src="status.js" type="module" defer></script>
     <title>Speech to baybayin</title>
 </head>
 
@@ -22,6 +22,29 @@
         <div class="issue">
             <h3></h3>
             <i class="bi bi-chevron-down"></i>
+        </div>
+    </template>
+
+    <template id = 'states'>
+        <div class="state original" style="--bg-color: #8c00ff">
+            <h3>Original transcription</h3>
+            <i class="bi bi-fonts"></i>
+            <input type="hidden">
+        </div>
+        <div class="state filtered" style="--bg-color: #f8069b">
+            <h3>Filtered transcription</h3>
+            <i class="bi bi-filter-right"></i>
+            <input type="hidden">
+        </div>
+        <div class="state safe" style="--bg-color: #F2D119">
+            <h3>Baybayin safe</h3>
+            <i class="bi bi-type"></i>
+            <input type="hidden">
+        </div>
+        <div class="state baybayin" style="--bg-color: #1bd899">
+            <h3>Baybayin transcription</h3>
+            <i>&#x1703</i>
+            <input type="hidden">
         </div>
     </template>
 
@@ -38,22 +61,6 @@
         </div>
 
         <div id="status-container">
-            <div class = "state original" style = "--bg-color: #8c00ff">
-                <h3>Original transcription</h3>
-                <i class="bi bi-fonts"></i>
-            </div>
-            <div class = "state filtered" style = "--bg-color: #f8069b">
-                <h3>Filtered transcription</h3>
-                <i class="bi bi-filter-right"></i>
-            </div>
-            <div class = "state safe" style = "--bg-color: #F2D119">
-                <h3>Baybayin safe</h3>
-                <i class="bi bi-type"></i>
-            </div>
-            <div class = "state baybayin" style = "--bg-color: #1bd899">
-                <h3>Baybayin transcription</h3>
-                <i>&#x1703</i>
-            </div>
         </div>
     </section>
 
