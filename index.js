@@ -26,7 +26,7 @@ function listenCallback(event) {
     outputBox.textContent = '';
     if (startBtn.classList.contains('listening')) {
         startBtn.disabled = true;
-        startBtn.textContent = 'Listening...';
+        startBtn.textContent = 'N A K I K I N I G . . .';
     }
 
     recognition.start();
@@ -37,7 +37,7 @@ recognition.onresult = (event) => {
     if (event.results[0].isFinal) {
         recognition.stop();
         startBtn.disabled = false;
-        startBtn.textContent = 'Start';
+        startBtn.textContent = 'S I M U L A N';
         startBtn.classList.toggle('listening');
         outputBox.classList.toggle('baybayin');
         originalTranscript = event.results[0][0].transcript;

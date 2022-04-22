@@ -1,11 +1,10 @@
 body {
-    background-color: rgb(248, 248, 248);
+    background-color: #f8f8f8;
     padding-top: 1rem;
 }
 
 h1 {
     font-size: 2.5rem;
-    color: rgb(110, 110, 110);
     line-height: 10px;
 }
 
@@ -16,9 +15,22 @@ h2 {
     line-height: 1px;
 }
 
+p mark{
+    padding: 5px;
+    border-radius: 5px;
+}
+
+p mark:first-of-type{
+    background-color: #ffdb77;
+}
+
+p mark:last-of-type{
+    background-color: #58ecc0;
+}
+
 header {
-    width: 80vw;
-    margin: 0px auto 80px auto;
+    width: 70vw;
+    margin: 40px auto 60px auto;
 }
 
 
@@ -26,7 +38,7 @@ section {
     display: flex;
     justify-content: space-between;
     height: 70vh;
-    width: 80vw;
+    width: 70vw;
     margin: 0px auto;
 }
 
@@ -35,7 +47,7 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 70%;
+    width: 65%;
     height: 100%;
 }
 
@@ -52,7 +64,7 @@ section {
     color: rgb(95, 95, 95);
     overflow-y: scroll;
     font-size: 2rem;
-    word-wrap: break-word;
+    word-wrap: break-word;  
 }
 
 #output.baybayin {
@@ -63,20 +75,20 @@ section {
     display: block;
     margin: 0px auto;
     width: 100%;
-    height: 10%;
+    height: 11%;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 110%;
     color: rgb(252, 252, 252);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: rgb(20, 223, 155);
+    background-color: #5cdbaa;
     box-shadow: 0px 5px 15px rgb(212, 212, 212);
     transition: all 200ms ease-in-out;
 }
 
 #output-container button:hover {
-    background-color: rgb(27, 216, 153);
+    background-color: rgb(36, 197, 143);
 }
 
 #output-container button:active {
@@ -106,10 +118,14 @@ section {
 }
 
 #status-container {
-    width: 27%;
+    width: 30%;
     height: 100%;
     overflow-y: scroll;
+}
 
+#status-container p{
+    margin-top: -15px;
+    font-size: 4rem;
 }
 
 .issue, .state {
@@ -153,13 +169,13 @@ section {
     font-size: 110%;
     color: rgb(252, 252, 252);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: rgb(20, 223, 155);
+    background-color: #5cdbaa;
     box-shadow: 0px 5px 15px rgb(212, 212, 212);
     transition: all 200ms ease-in-out;
 }
 
 .issue button:hover {
-    background-color: rgb(27, 216, 153);
+    background-color: rgb(36, 197, 143);
 }
 
 .issue button:active {
@@ -189,6 +205,11 @@ section {
 .state:hover > h3{
     color: white;
     transition: all 250ms ease-in-out;
+}
+
+.state.toggle, .state.toggle > h3, .state.toggle > i{
+    background-color: var(--bg-color);
+    color: white;
 }
 
 /*

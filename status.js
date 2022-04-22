@@ -5,6 +5,7 @@ const outputBox = document.getElementById('output');
 const issueContainer = document.querySelector('#status-container');
 const states = document.querySelector('#states');
 let baybayinSafeTranscriptAlt;
+let prevStateToggled;
 
 export function createIssue(issues) {
 
@@ -61,18 +62,20 @@ export function displayStates(){
             state.lastElementChild.value = baybayinSafeTranscript;
             if(baybayinSafeTranscriptAlt !== undefined){
                 state.lastElementChild.value = baybayinSafeTranscriptAlt;
+                baybayinSafeTranscriptAlt = undefined;
             }
         }
         else if(state.classList.contains('baybayin')){
             state.lastElementChild.value = outputBox.textContent;
         } 
         issueContainer.append(state.cloneNode(true));
-        issueContainer.lastElementChild.addEventListener('click', displayState, true);
+        issueContainer.lastElementChild.addEventListener('click', outputState, true);
     }
 }
 
-function displayState(event){
+function outputState(event){
     event.stopPropagation();
+    let currentStateToggled;
     if(event.target.tagName === 'DIV'){
         if(event.target.classList.contains('baybayin')){
             outputBox.textContent = transcribeToBaybayin(event.target.lastElementChild.value);
@@ -80,6 +83,7 @@ function displayState(event){
         else{
             outputBox.textContent = event.target.lastElementChild.value;
         }
+        currentStateToggled = event.target;
     }
     else{
         if(event.target.parentNode.classList.contains('baybayin')){
@@ -88,7 +92,12 @@ function displayState(event){
         else{
             outputBox.textContent = event.target.parentNode.lastElementChild.value;
         }
+        currentStateToggled = event.target.parentNode;
     }
+
+    currentStateToggled.classList.toggle('toggle');
+    if(prevStateToggled !== undefined) prevStateToggled.classList.toggle('toggle');
+    prevStateToggled = currentStateToggled;
         
 }
 
