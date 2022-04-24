@@ -85,9 +85,6 @@ export function transcribeToBaybayin(transcript) {
     const consonants = ['ng', 'k', 'g', 't', 'd', 'r', 'n', 'p', 'f', 'b', 'v', 'm', 'y', 'l', 'w', 's', 'z', 'h', 'ñ'];
     const vowels = ['a', 'e', 'i', 'o', 'u'];
 
-
-    //transcript = baybayinSafe(transcript);
-
     //Syllables
     for (const consonant of consonants) {
         for (const vowel of vowels) {

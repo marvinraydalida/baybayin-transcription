@@ -2,10 +2,20 @@ import { filter, transcribeToBaybayin, baybayinSafe, isBaybayinSafe } from './ba
 import { createIssue, displayStates } from "./status.js";
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-const recognition = new SpeechRecognition();
+let recognition;
+
+try {
+    recognition = new SpeechRecognition();
+} catch (error) {
+    const modal = document.getElementById('modal');
+    modal.parentNode.addEventListener('click', closeModal);
+    modal.children[0].addEventListener('click', closeModal);
+    modal.parentNode.style.display = 'block';
+}
 
 const startBtn = document.querySelector('button');
 const outputBox = document.getElementById('output');
+
 let originalTranscript;
 let filteredTranscript;
 let baybayinSafeTranscript;
@@ -17,7 +27,9 @@ recognition.lang = 'fil-PH';
 
 startBtn.addEventListener('click', listenCallback);
 
+
 function listenCallback(event) {
+
     const issueContainer = document.querySelector('#status-container');
     issueContainer.innerHTML = '';
 
@@ -56,5 +68,11 @@ recognition.onresult = (event) => {
         outputBox.textContent = event.results[0][0].transcript;
     }
 }
+
+function closeModal(event) {
+    if (event.target === modal.children[0] || event.target === modal.parentNode)
+        modal.parentNode.style.display = 'none';
+}
+
 
 export { originalTranscript, filteredTranscript, baybayinSafeTranscript };
