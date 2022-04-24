@@ -6,7 +6,6 @@ const nonEquivalentConsonant = new Map();
 
 //Basic Syllables
 character.set('ka', '\u1703');
-character.set('qa', '\u1703');
 character.set('ga', '\u1704');
 character.set('nga', '\u1705');
 character.set('ta', '\u1706');
@@ -59,18 +58,23 @@ export function baybayinSafe(transcript) {
     //Replace remaining X with ks
     transcript = transcript.replace(/x/gi, 'ks');
 
+    //Replace Chr  to kr
+    transcript = transcript.replace(/chr/gi,'kr');
+
     //Replace ch to ts
     transcript = transcript.replace(/ch/gi, 'ts');
 
+    //Replace C followed by vowels a, o, u or not followed by a vowel to K
+    transcript = transcript.replace(/c(?![ei])/gi, 'k');
 
-    //Replace C not followed by a vowel to K
-    transcript = transcript.replace(/c(?![aeiou])/gi, 'k');
+    //Replace Q to K
+    transcript = transcript.replace(/q/gi, 'k');
 
     return transcript;
 }
 
 export function isBaybayinSafe(transcript){
-    if(!/[a-z]*j\w*/gi.test(transcript) && !/\w*c[aeiou]\w*/gi.test(transcript)){
+    if(!/[a-z]*j[a-z]*/gi.test(transcript) && !/\w*c[ei][a-z]*/gi.test(transcript)){
         return true;
     }
 
@@ -78,7 +82,7 @@ export function isBaybayinSafe(transcript){
 }
 
 export function transcribeToBaybayin(transcript) {
-    const consonants = ['ng', 'k', 'q', 'g', 't', 'd', 'r', 'n', 'p', 'f', 'b', 'v', 'm', 'y', 'l', 'w', 's', 'z', 'h', 'ñ'];
+    const consonants = ['ng', 'k', 'g', 't', 'd', 'r', 'n', 'p', 'f', 'b', 'v', 'm', 'y', 'l', 'w', 's', 'z', 'h', 'ñ'];
     const vowels = ['a', 'e', 'i', 'o', 'u'];
 
 

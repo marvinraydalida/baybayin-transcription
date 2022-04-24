@@ -23,12 +23,12 @@ export function createIssue(issues) {
         const newOption1 = document.createElement("button");
         const newOption2 = document.createElement("button");
 
-        if(/[a-z]*j\w*/gi.test(issueText)){
+        if(/[a-z]*j[a-z]*/gi.test(issueText)){
             newOption1.textContent = issueText.replace(/j/i, 'diy');
             newOption2.textContent = issueText.replace(/j/i, 'h');    
         }
 
-        if(/[a-z]*c\w*/gi.test(issueText)){
+        if(/[a-z]*c[ei][a-z]*/gi.test(issueText)){
             newOption1.textContent = issueText.replace(/c/i, 'k');
             newOption2.textContent = issueText.replace(/c/i, 's');
         }
@@ -110,16 +110,16 @@ function selectOption(event){
 
 
 
-    if(/[a-z]*j\w*/i.test(updatedIssue) || /[a-z]*c\w*/i.test(updatedIssue)){
+    if(/[a-z]*j[a-z]*/i.test(updatedIssue) || /[a-z]*c[ei][a-z]*/i.test(updatedIssue)){
 
         const options = event.target.parentNode.querySelectorAll('button');
         event.target.parentNode.firstElementChild.textContent = updatedIssue;
 
-        if(/[a-z]*j\w*/gi.test(updatedIssue)){
+        if(/[a-z]*j[a-z]*/gi.test(updatedIssue)){
             options[0].textContent = updatedIssue.replace(/j/i, 'diy');
             options[1].textContent = updatedIssue.replace(/j/i, 'h');    
         }
-        else if(/[a-z]*c\w*/gi.test(updatedIssue)){
+        else if(/[a-z]*c[ei][a-z]*/gi.test(updatedIssue)){
             options[0].textContent = updatedIssue.replace(/c/i, 'k');
             options[1].textContent = updatedIssue.replace(/c/i, 's');
         }  

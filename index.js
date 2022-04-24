@@ -49,7 +49,7 @@ recognition.onresult = (event) => {
             displayStates();
         } else {
             createIssue(baybayinSafeTranscript.match(/[a-z]*j[a-z]*/gi));
-            createIssue(baybayinSafeTranscript.match(/[a-z]*c[aeiou][a-z]*/gi));
+            createIssue(baybayinSafeTranscript.match(/[a-z]*c[ei][a-z]*/gi));
         }
     }
     else {
